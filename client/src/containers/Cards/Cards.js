@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styles from './Cards.module.css'
+import loader from './loader.module.css'
 import Card from '../../Components/Card/Card'
 import axios from 'axios'
 import debounce from "lodash.debounce";
@@ -86,8 +87,8 @@ class Cards extends Component {
             <div className={styles.body}>
                 {this.state.entries.map((entry) => (<Card date={entry.date} key={randomBytes(10)} data={entry.image} title={entry.title} author={entry.author} />))}
             </div>
-              {this.state.hasMore ? 
-              null : <p className={styles.end}>Has llegado al final!, si quieres apoyar al proyecto envia tus propios Pixel Arts</p>}
+              {this.state.hasMore ? null : <p className={styles.end}>Has llegado al final!, si quieres apoyar al proyecto envia tus propios Pixel Arts</p>}
+              {this.state.isLoading ? <div className={loader.loader}>Loading...</div> : null}
             </Aux>
         )
     }

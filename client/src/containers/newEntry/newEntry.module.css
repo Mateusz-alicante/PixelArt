@@ -73,6 +73,7 @@
     cursor: pointer;
     width: 100%;
     border-radius: 30px;
+    font-family:'Lexend Deca', sans-serif;
 }
 
 .button:focus,
