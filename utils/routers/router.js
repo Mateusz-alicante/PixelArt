@@ -15,7 +15,11 @@ app.get('/api/data', async (req, res) => {
 })
 
 app.post('/api/new', async (req, res) => {
-  addEntry(req.body).then(() => res.status(200))
+  try {
+  addEntry(req.body).then(() => res.status(200).send('OK'))
+  } catch {
+    res.status(500).send('ERROR')
+  }
 })
 
 module.exports = app
