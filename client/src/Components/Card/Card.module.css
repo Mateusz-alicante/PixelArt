@@ -1,16 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
+
 .Card {
     height: 300;
     width: 250px;
-    border: 1px solid rebeccapurple;
+    border: 2px solid grey;
     margin: 20px;
     padding: 10px;
+    font-family: 'Lexend Deca', sans-serif;
+    box-shadow: 10px 10px 8px #888888
 }
 
 .image {
-    width: 200px;
-    height: 150px;
+    width: 250px;
+    height: 200px;
 }
 
 .Card p {
     text-align: left;
+}
+
+.Card span {
+    float: right;
 }

@@ -40,7 +40,7 @@ class newEntry extends Component {
           Resizer.imageFileResizer(
             this.fileInput.current.files[0], //is the file of the new image that can now be uploaded...
             300, // is the maxWidth of the  new image
-            300, // is the maxHeight of the  new image
+            500, // is the maxHeight of the  new image
             'JPEG', // is the compressFormat of the  new image
             100, // is the quality of the  new image
             0, // is the rotatoion of the  new image
