@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
+
+.form {
+    width: 90%;
+    margin: 50px;
+    height: 80%;
+    background-color: bisque;
+}
+.form input {
+    width: 100%
+}
+.form li {
+    list-style-type: none;
+    padding: 30px
+}
+
+.form label {
+    font-size: 30px;
+    padding: 20px;
+    float: left;
+    margin-right: 100%;
+    font-family: 'Lexend Deca', sans-serif
+}   
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: #36C2C0;
+    display: inline-block;
+    border-radius: 15px;
+    width: 30%
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #78E5E3;
+}
+
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile + label * {
+	pointer-events: none;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 50px 10px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 30px;
+}
+
+.button:focus,
+.button:hover {
+    background-color: rgb(113, 223, 141);
+}
+
+
+.image {
+    margin-top: 20px;
+    width: 40%;
+    float: left;
+}

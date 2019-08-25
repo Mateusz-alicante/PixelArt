@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
+
+.input{
+    width: 100%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid rgb(107, 212, 247);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    font-size: 20px;
+    font-family: 'Lexend Deca', sans-serif
+  }
+  
+.input:focus {
+    border: 3px solid rgb(0, 101, 134);
+  }
