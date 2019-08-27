@@ -32,7 +32,7 @@ app.post('/api/new', async (req, res) => {
 
 app.post('/api/comment', async (req, res) => {
   try {
-    addComment(req.body)
+    await addComment(req.body)
     res.status(200).send('ok')
   } catch {
     res.status(500).send('ERROR')
