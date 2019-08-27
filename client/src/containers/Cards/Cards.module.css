@@ -22,3 +22,18 @@
 	box-shadow: 10px 10px 8px #888888;
 	font-family: 'Lexend Deca', sans-serif;
 }
+
+@media (max-width: 600px) {
+	.body {
+		grid-template-columns: 1fr;
+		padding: 10px;
+	}
+	.end {
+		width: 50%;
+		font-size: 15px;
+		padding: 10px;
+		box-shadow: 10px 10px 8px #888888;
+		font-family: 'Lexend Deca', sans-serif;
+		margin: 20px auto;
+	}
+}
