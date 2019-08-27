@@ -8,7 +8,8 @@ var entrySchema = new mongoose.Schema({
     date: {
       type: Date,
       default: Date.now()
-    }
+    },
+    comments: Array
   });
               
 var Entry = mongoose.model('Entries', entrySchema);

@@ -6,6 +6,7 @@ import axios from 'axios'
 import debounce from "lodash.debounce";
 import Aux from '../../Components/Auxiliary/Auxiliary'
 import { randomBytes } from 'crypto';
+import Modal from '../../Components/Modal/Modal'
 
 class Cards extends Component {
     constructor(props) {
@@ -17,6 +18,7 @@ class Cards extends Component {
           hasMore: true,
           isLoading: false,
           entries: [],
+          selected: null
         };
     
         window.onscroll = debounce(() => {
@@ -46,8 +48,9 @@ class Cards extends Component {
 
       loadUsers = () => {
         this.setState({ isLoading: true }, () => {
+          console.log('/api/data?cycle' + this.state.cycle)
           axios
-            .get('/api/data')
+            .get('/api/data?cycle=' + this.state.cycle)
             .then((results) => {
              console.log(results)
              const nextHasMore = results.data.hasMore
@@ -55,12 +58,14 @@ class Cards extends Component {
                 title: entry.title,
                 author: entry.author,
                 image: entry.image,
-                date: entry.date
+                date: entry.date,
+                id: entry.id
               }));
 
               console.log(nextEntry)
              
-              this.setState({
+              this.setState(prevState => ({
+                cycle: prevState.cycle + 1,
                 hasMore: nextHasMore,
                 isLoading: false,
                 entries: [
@@ -68,7 +73,7 @@ class Cards extends Component {
                   ...nextEntry,
                 //   "test"
                 ],
-              });
+              }));
             })
             .catch((err) => {
               this.setState({
@@ -79,13 +84,22 @@ class Cards extends Component {
         });
       }
 
+      selectedHandler = (id) => {
+        this.setState({selected: id})
+      }
+
+      BackdropClicked = () => {
+        this.setState({selected: null})
+      }
+
 
     render() {
         console.log(this.state)
         return (
             <Aux>
+              {this.state.selected ? <Modal clickBackdrop={this.BackdropClicked} id={this.state.selected} /> : null}
             <div className={styles.body}>
-                {this.state.entries.map((entry) => (<Card date={entry.date} key={randomBytes(10)} data={entry.image} title={entry.title} author={entry.author} />))}
+                {this.state.entries.map((entry) => (<Card click={() => this.selectedHandler(entry.id)} date={entry.date} key={randomBytes(10)} data={entry.image} title={entry.title} author={entry.author} />))}
             </div>
               {this.state.hasMore ? null : <p className={styles.end}>Has llegado al final!, si quieres apoyar al proyecto envia tus propios Pixel Arts</p>}
               {this.state.isLoading ? <div className={loader.loader}>Loading...</div> : null}

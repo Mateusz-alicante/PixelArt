@@ -1,0 +1,41 @@
+.container {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+.comment {
+    border: 3px solid lightblue;
+    border-radius: 20px;
+    /* box-shadow: 10px 10px 8px #888888; */
+    padding: 10px;
+    margin-left: 2em;
+    margin-top: 1em;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+/* Track */
+::-webkit-scrollbar-track {
+box-shadow: inset 0 0 5px transparent; 
+border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: rgb(16, 148, 236); 
+border-radius: 10px;
+}
+
+.noComments {
+    margin: 30px;
+    padding: 10px;
+    border: 3px solid lightblue;
+    border-radius: 30px;
+    box-shadow: 10px 10px 8px #888888;
+}

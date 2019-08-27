@@ -17,11 +17,18 @@ const dateFormat = (ISO) => {
     return(year+'-' + month + '-'+dt);
 }
 
-const getEntries = async (cycle) => {
-    const entries = await Entry.find().sort({ _id: -1 }).skip(cycle * 15).limit(15)
-    let data = entries.map(entry => ({title: entry.title, author: entry.author, date: dateFormat(entry.date),id: entry._id, image: entry.image}))
-
-    return {hasMore: data.length == 15, data}
+const getEntry = async (id) => {
+    const entry = await Entry.findById(id)
+    const result = {info: {
+        title: entry.title, 
+        author: entry.author, 
+        date: dateFormat(entry.date)
+    },image: {
+        data: entry.image
+    }, comments: [...entry.comments]
 }
 
-module.exports = getEntries
+return result
+}
+
+module.exports = getEntry
