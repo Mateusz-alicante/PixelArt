@@ -13,7 +13,6 @@ const addComment = require('../db/functions/addComment')
 
 app.get('/api/data', async (req, res) => {
   let cycle = parseInt(req.query.cycle)
-  console.log(cycle)
   getEntries(cycle).then((e) => res.send(e))
 })
 

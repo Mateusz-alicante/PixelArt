@@ -28,7 +28,6 @@ class Modal extends Component {
     }
 
     updateComments() {
-        console.log('updating')
         axios.get('/api/single?id=' + this.props.id).then(data => {this.setState({entryData: data.data, hasData: true})})
         
     }

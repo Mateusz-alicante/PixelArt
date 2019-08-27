@@ -44,7 +44,7 @@ class newEntry extends Component {
           })
           .then(response => {
             if (response.status === 200) {
-              this.setState({status: {loading: false, success: true, failed: false}})
+              this.setState({status: {loading: false, success: true, failed: false}, title: '', author: '', image: null})
             } else {
               this.setState({status: {loading: false, success: false, failed: true}})
             }
@@ -76,7 +76,7 @@ class newEntry extends Component {
                     <li><label>Autor: </label><input required maxLength="20" className={textStyle.input} onChange={this.handleChangeAuthor} value={this.state.author} /></li>
                     <li><label>Imagen: </label><input required accept="image/*" onChange={this.handleChangeFile} ref={this.fileInput} name="file" id="file" type='file' className={styles.inputfile} /> <label htmlFor="file"><strong>Elige un archivo</strong></label></li>
                     <li><img alt="" className={styles.image} src={this.state.image} /></li>
-                    <li><button className={styles.button} type="submit">Enviar</button></li>
+                    <li><button disabled={this.state.loading} className={styles.button} type="submit">Enviar</button></li>
                     
                     <div ref={(el) => { this.messagesEnd = el; }}>
                       {this.state.status.loading ? <div className={status.loader}>Loading...</div> : null}

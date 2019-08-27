@@ -41,18 +41,16 @@ class Cards extends Component {
           }
         }, 100);
       }
-      componentWillMount() {
+      componentDidMount() {
         // Loads some users on initial load
         this.loadUsers();
       }
 
       loadUsers = () => {
         this.setState({ isLoading: true }, () => {
-          console.log('/api/data?cycle' + this.state.cycle)
           axios
             .get('/api/data?cycle=' + this.state.cycle)
             .then((results) => {
-             console.log(results)
              const nextHasMore = results.data.hasMore
               const nextEntry = results.data.data.map(entry => ({
                 title: entry.title,
@@ -62,7 +60,6 @@ class Cards extends Component {
                 id: entry.id
               }));
 
-              console.log(nextEntry)
              
               this.setState(prevState => ({
                 cycle: prevState.cycle + 1,
@@ -94,7 +91,6 @@ class Cards extends Component {
 
 
     render() {
-        console.log(this.state)
         return (
             <Aux>
               {this.state.selected ? <Modal clickBackdrop={this.BackdropClicked} id={this.state.selected} /> : null}

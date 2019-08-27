@@ -28,7 +28,7 @@ class AddComment extends Component {
         event.preventDefault()
         this.setState({loading: true})
         axios.post('/api/comment', {name: this.state.name, message: this.state.message, entryID: this.props.id}).then( (response) => {
-            this.setState({loading: false})
+            this.setState({loading: false, name: '', message: ''})
             this.props.update()
             }
         )
@@ -39,9 +39,9 @@ class AddComment extends Component {
         return (
             <form onSubmit={this.handleSubmit} className={styles.form}>
                 <label>Tu nombre:</label>
-                <input onChange={this.handleChangeName} value={this.state.name} className={styles.input}></input>
+                <input required onChange={this.handleChangeName} value={this.state.name} className={styles.input}></input>
                 <label>Mensaje:</label>
-                <input onChange={this.handleChangeMessage} className={styles.input}></input>
+                <input required onChange={this.handleChangeMessage} className={styles.input} value={this.state.message}></input>
                 <button disabled={this.state.loading} className={styles.button} type='submit'>Submit</button>
             </form>
         )
